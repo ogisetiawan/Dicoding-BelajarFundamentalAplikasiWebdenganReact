@@ -1,53 +1,19 @@
 import React from "react";
-import { HiOutlineBookmark } from "react-icons/hi";
-import { HiOutlineTrash } from "react-icons/hi";
+import { Route, Routes } from 'react-router-dom';
+
+// import NoteList from './NoteList';
+import HomePage from '../../pages/HomePage';
+import AddPage from '../../pages/AddPage';
+import ArchivePage from '../../pages/ArcivesPage';
+
 
 function NoteApp() {
     return <main>
-    <h2 className="sixth">Active Notes</h2>
-    <section>
-      <div className="allCardsContainer">
-        <div className="eachCard">
-          <div className="cardContent">
-            <div className="cardInfo">
-              <h5 className="cardTitle">Babel</h5>
-              <h6 className="cardSubTitle">Kamis, 14 April 2022</h6>
-              <p className="cardText">Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel seri</p>
-            </div>
-          </div>
-          <div className="userActions">
-            <button className="btn-secondary"><HiOutlineBookmark  /> Archives</button>
-            <button className="btn-danger"><HiOutlineTrash  /> Delete</button>
-          </div>
-        </div>
-        <div className="eachCard">
-          <div className="cardContent">
-            <div className="cardInfo">
-              <h5 className="cardTitle">Babel</h5>
-              <h6 className="cardSubTitle">Kamis, 14 April 2022</h6>
-              <p className="cardText">Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel seri</p>
-            </div>
-          </div>
-          <div className="userActions">
-            <button className="btn-secondary"><HiOutlineBookmark  /> Archives</button>
-            <button className="btn-danger"><HiOutlineTrash  /> Delete</button>
-          </div>
-        </div>
-        <div className="eachCard">
-          <div className="cardContent">
-            <div className="cardInfo">
-              <h5 className="cardTitle">Babel</h5>
-              <h6 className="cardSubTitle">Kamis, 14 April 2022</h6>
-              <p className="cardText">Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel seri</p>
-            </div>
-          </div>
-          <div className="userActions">
-            <button className="btn-secondary"><HiOutlineBookmark  /> Archives</button>
-            <button className="btn-danger"><HiOutlineTrash  /> Delete</button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/archives" element={<ArchivePage />} />
+        <Route path="/add" element={<AddPage />} />
+    </Routes>
   </main>;
 }
 
