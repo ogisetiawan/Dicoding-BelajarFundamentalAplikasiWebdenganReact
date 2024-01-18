@@ -1,10 +1,16 @@
 import React from 'react';
+import Navbar from './components/Header/Navbar';
+import NoteApp from './components/Notes/NoteApp';
+import FooterApp from './components/Footer/FooterApp';
+
 
 function App() {
   return (
-    <div className="app-container">
-      <h1>Hello, React</h1>
-    </div>
+    <>
+      <Navbar />
+      <NoteApp />
+      <FooterApp />
+    </>
   );
 }
 
