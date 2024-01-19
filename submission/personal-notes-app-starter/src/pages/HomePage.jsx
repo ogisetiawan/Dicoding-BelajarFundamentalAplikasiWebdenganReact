@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
-// import { deleteContact, getContacts } from '../utils/data';
+import { getAllNotes } from '../utils/local-data';
 
 function HomePageWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -15,17 +15,17 @@ function HomePageWrapper() {
 
 
 class HomePage extends React.Component {
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
 
-    //     this.state = {
-    //         contacts: getContacts(),//?create state
-    //         keyword: props.defaultKeyword || '', //? isnull
-    //     }
+        this.state = {
+            notes: getAllNotes(),//?create state
+            // keyword: props.defaultKeyword || '', //? isnull
+        }
 
-    //     this.onDeleteHandler = this.onDeleteHandler.bind(this);
-    //     this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this); //? bind onEvent
-    // }
+        // this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        // this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this); //? bind onEvent
+    }
 
     // onDeleteHandler(id) {
     //     deleteContact(id);
@@ -49,19 +49,20 @@ class HomePage extends React.Component {
     // }
 
     render() {
-        // //? add condition by data state.contacts
-        // const contacts = this.state.contacts.filter((contact) => {
-        //     return contact.name.toLowerCase().includes(
-        //         this.state.keyword.toLowerCase()
-        //     );
-        // });
+        //? add condition by data state.contacts
+        const notes = this.state.notes.filter((notes) => {
+            return notes;
+            // return notes.title.toLowerCase().includes(
+            //     this.state.keyword.toLowerCase()
+            // );
+        });
 
+        //? passing active notes
         return (
             <>
                 <h2 className="sixth">Active Notes</h2>
                 <section>
-                    {/* <NoteList contacts={contacts} onDelete={this.onDeleteHandler} /> */}
-                    <NoteList />
+                    <NoteList notes={notes} />
                 </section>
             </>
         )

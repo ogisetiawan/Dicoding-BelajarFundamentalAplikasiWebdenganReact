@@ -1,12 +1,11 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
 
-// import NoteList from './NoteList';
 import HomePage from '../../pages/HomePage';
 import AddPage from '../../pages/AddPage';
 import ArchivePage from '../../pages/ArcivesPage';
 
-
+//? set routes to the page(component) 
 function NoteApp() {
     return <main>
     <Routes>
