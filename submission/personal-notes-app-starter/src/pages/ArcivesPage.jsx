@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
-import { getAllNotes, deleteNote, archiveNote } from '../utils/local-data';
+import { getArchivedNotes, deleteNote, unarchiveNote } from '../utils/local-data';
 
 function ArvhivesPageWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -19,13 +19,13 @@ class ArvhivesPage extends React.Component {
         super(props);
 
         this.state = {
-            notes: getAllNotes(),//?create state
+            notes: getArchivedNotes(),//?create state
             keyword: props.defaultKeyword || '', //? isnull
         }
 
         //? bind onEvent
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
-        this.onArchiveHandler = this.onArchiveHandler.bind(this);
+        this.onUnarchiveHandler = this.onUnarchiveHandler.bind(this);
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
     }
 
@@ -34,18 +34,17 @@ class ArvhivesPage extends React.Component {
 
         this.setState(() => {
             return {
-                notes: getAllNotes(),
+                notes: getArchivedNotes(),
             }
         });
     }
 
-    onArchiveHandler(id) {
-        archiveNote(id);
-        console.log(id)
+    onUnarchiveHandler(id) {
+        unarchiveNote(id);
 
         this.setState(() => {
             return {
-                notes: getAllNotes(),
+                notes: getArchivedNotes(),
             }
         });
     }
@@ -65,8 +64,7 @@ class ArvhivesPage extends React.Component {
         //? add condition data notes keyword + archived=false
         const notes = this.state.notes.filter((note) => {
             return (
-              note.title.toLowerCase().includes(this.state.keyword.toLowerCase()) &&
-              note.archived === true
+              note.title.toLowerCase().includes(this.state.keyword.toLowerCase())
             );
           });
 
@@ -76,7 +74,7 @@ class ArvhivesPage extends React.Component {
             <>
                 <h2 className="sixth">Archive Notes</h2>
                 <section>
-                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} valueArchiveBtn={valArvhive}/>
+                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onUnarchiveHandler} valueArchiveBtn={valArvhive}/>
                 </section>
             </>
         )

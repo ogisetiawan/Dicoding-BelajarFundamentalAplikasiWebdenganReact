@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
-import { getAllNotes, deleteNote, archiveNote } from '../utils/local-data';
+import { getActiveNotes, deleteNote, archiveNote } from '../utils/local-data';
 
 function HomePageWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -19,7 +19,7 @@ class HomePage extends React.Component {
         super(props);
 
         this.state = {
-            notes: getAllNotes(),//?create state
+            notes: getActiveNotes(),//?create state
             keyword: props.defaultKeyword || '', //? isnull
         }
 
@@ -34,7 +34,7 @@ class HomePage extends React.Component {
 
         this.setState(() => {
             return {
-                notes: getAllNotes(),
+                notes: getActiveNotes(),
             }
         });
     }
@@ -45,7 +45,7 @@ class HomePage extends React.Component {
 
         this.setState(() => {
             return {
-                notes: getAllNotes(),
+                notes: getActiveNotes(),
             }
         });
     }
@@ -65,8 +65,7 @@ class HomePage extends React.Component {
         //? add condition data notes keyword + archived=false
         const notes = this.state.notes.filter((note) => {
             return (
-              note.title.toLowerCase().includes(this.state.keyword.toLowerCase()) &&
-              note.archived === false
+              note.title.toLowerCase().includes(this.state.keyword.toLowerCase())
             );
           });
 
