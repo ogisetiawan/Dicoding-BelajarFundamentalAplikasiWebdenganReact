@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
-import { getAllNotes } from '../utils/local-data';
+import { getAllNotes, deleteNote } from '../utils/local-data';
 
 function HomePageWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -24,20 +24,19 @@ class HomePage extends React.Component {
         }
 
         //? bind onEvent
-        // this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.onDeleteHandler = this.onDeleteHandler.bind(this);
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
     }
 
-    // onDeleteHandler(id) {
-    //     deleteContact(id);
+    onDeleteHandler(id) {
+        deleteNote(id);
 
-    //     // update the contact state from data.js
-    //     this.setState(() => {
-    //         return {
-    //             contacts: getContacts(),
-    //         }
-    //     });
-    // }
+        this.setState(() => {
+            return {
+                notes: getAllNotes(),
+            }
+        });
+    }
     
     // onKeywordChangeHandler(keyword) {
     //     this.setState(() => {
@@ -72,7 +71,7 @@ class HomePage extends React.Component {
             <>
                 <h2 className="sixth">Active Notes</h2>
                 <section>
-                    <NoteList notes={notes} />
+                    <NoteList notes={notes} onDelete={this.onDeleteHandler} />
                 </section>
             </>
         )

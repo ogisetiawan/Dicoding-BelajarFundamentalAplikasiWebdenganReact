@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import NoteItemBody from './NoteItemBody';
 import NoteAction from './NoteAction';
 
-function NoteItem({ id, title, body, createdAt }) {
+function NoteItem({ id, title, body, createdAt, onDelete }) {
     return (
         <div className="eachCard">
             <NoteItemBody title={title} createdAt={createdAt} body={body} />
-            <NoteAction id={id} />
+            <NoteAction id={id} onDelete={onDelete} />
         </div>
     );
 }

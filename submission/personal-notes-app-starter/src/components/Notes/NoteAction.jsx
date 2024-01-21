@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { HiOutlineBookmark } from "react-icons/hi";
 import { HiOutlineTrash } from "react-icons/hi";
 
-function NoteAction({ id}) {
+function NoteAction({ id, onDelete}) {
     return <div className="userActions">
         <button className="btn-secondary" onClick={() => onDelete(id)}>
             <HiOutlineBookmark /> Archives
@@ -16,7 +16,7 @@ function NoteAction({ id}) {
 
 NoteAction.propTypes = {
     id: PropTypes.string.isRequired,
-    //   onDelete: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
 }
 
 export default NoteAction;
