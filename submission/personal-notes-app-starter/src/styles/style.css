@@ -370,6 +370,23 @@ h6 {
   border-radius: 0.25rem;
 }
 
+.detail-page {
+  margin: 32px auto 0;
+  width: 90%;
+}
+
+.detail-page__title {
+    word-wrap: break-word;
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.detail-page__body {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 36px;
+}
+
 footer {
   position: fixed;
   margin-top:10px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HiOutlinePlus } from "react-icons/hi";
+import { HiOutlineSave } from "react-icons/hi";
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class NoteInput extends React.Component {
           onInput={this.onTagChangeEventHandler}
         ></div>
         <button type="submit" className="btn btn-primary" onClick={this.onSubmitEventHandler}>
-        <HiOutlinePlus /> Save
+        <HiOutlineSave /> Save
         </button>
       </div>
     )

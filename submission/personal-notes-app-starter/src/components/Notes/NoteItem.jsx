@@ -7,7 +7,7 @@ import NoteAction from './NoteAction';
 function NoteItem({ id, title, body, createdAt, onDelete, onArchive, valueArchiveBtn }) {
     return (
         <div className="eachCard">
-            <NoteItemBody title={title} createdAt={createdAt} body={body} />
+            <NoteItemBody id={id} title={title} createdAt={createdAt} body={body} />
             <NoteAction id={id} onDelete={onDelete} onArchive={onArchive} valueArchiveBtn={valueArchiveBtn} />
         </div>
     );

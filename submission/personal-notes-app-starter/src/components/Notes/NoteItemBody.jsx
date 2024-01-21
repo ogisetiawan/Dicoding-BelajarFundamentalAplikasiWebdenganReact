@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'; //? define react-route link
 import { showFormattedDate } from '../../utils/index';
 import parser from 'html-react-parser';
 
-function NoteItemBody({ title, createdAt, body }) {
+function NoteItemBody({id, title, createdAt, body }) {
     const formattedDate = showFormattedDate(createdAt);
     return (
         <div className="cardContent">
             <div className="cardInfo">
-                <Link className="cardTitle">{title}</Link>
+            <Link to={`/note/${id}`} className="cardTitle">{title}</Link>
                 <h6 className="cardSubTitle">{formattedDate}</h6>
                 <p className="cardText"> {parser(body)}
                 </p>

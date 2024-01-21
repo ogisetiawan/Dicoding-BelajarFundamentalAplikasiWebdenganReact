@@ -5,6 +5,7 @@ import HomePage from '../../pages/HomePage';
 import AddPage from '../../pages/AddPage';
 import ArchivePage from '../../pages/ArcivesPage';
 import NotFoundPage from '../../pages/NotFoundPage';
+import DetailPage from '../../pages/DetailPage';
 
 //? set routes to the page(component) 
 function NoteApp() {
@@ -13,6 +14,7 @@ function NoteApp() {
         <Route path="/" element={<HomePage />} />
         <Route path="/archives" element={<ArchivePage />} />
         <Route path="/add" element={<AddPage />} />
+        <Route path="/note/:id" element={<DetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </main>;
