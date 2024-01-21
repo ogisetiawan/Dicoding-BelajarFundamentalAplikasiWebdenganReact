@@ -1,26 +1,86 @@
 import React from 'react';
-// import { addContact } from '../utils/data'; //? membawa data kontak baru yang hendak dimasukkan
-// import ContactInput from '../components/ContactInput';
-import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import NoteList from '../components/Notes/NoteList';
+import { getAllNotes, deleteNote, archiveNote } from '../utils/local-data';
 
-
-function ArchivesPage() {
-    const navigate = useNavigate();
-
-    /// mendefinisikan event handler ketika tombol “submit” pada form diklik
-    function onAddContactHandler(contact) {
-        addContact(contact)
-        navigate('/'); //? navigate setelah event addcontact
+function ArvhivesPageWrapper() {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const keyword = searchParams.get('keyword');
+    function changeSearchParams(keyword) {
+        setSearchParams({ keyword });
     }
 
-    return (
-        <>
-            <h2 className="sixth">Archive Notes</h2>
-            <section>
-            {/* <ContactInput addContact={onAddContactHandler} /> */}
-            </section>
-        </>
-    )
+    return <ArvhivesPage defaultKeyword={keyword} keywordChange={changeSearchParams} />
 }
 
-export default ArchivesPage;
+
+class ArvhivesPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            notes: getAllNotes(),//?create state
+            keyword: props.defaultKeyword || '', //? isnull
+        }
+
+        //? bind onEvent
+        this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.onArchiveHandler = this.onArchiveHandler.bind(this);
+        this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
+    }
+
+    onDeleteHandler(id) {
+        deleteNote(id);
+
+        this.setState(() => {
+            return {
+                notes: getAllNotes(),
+            }
+        });
+    }
+
+    onArchiveHandler(id) {
+        archiveNote(id);
+        console.log(id)
+
+        this.setState(() => {
+            return {
+                notes: getAllNotes(),
+            }
+        });
+    }
+    
+
+    onKeywordChangeHandler(keyword) {
+        this.setState(() => {
+            return {
+                keyword,
+            }
+        });
+        //? menyelaraskan nilai keyword yang berada di Search Bar dengan URL
+        this.props.keywordChange(keyword);
+    }
+
+    render() {
+        //? add condition data notes keyword + archived=false
+        const notes = this.state.notes.filter((note) => {
+            return (
+              note.title.toLowerCase().includes(this.state.keyword.toLowerCase()) &&
+              note.archived === true
+            );
+          });
+
+        const valArvhive = 'UnArchive'
+
+        return (
+            <>
+                <h2 className="sixth">Archive Notes</h2>
+                <section>
+                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} valueArchiveBtn={valArvhive}/>
+                </section>
+            </>
+        )
+    }
+}
+
+export default ArvhivesPageWrapper;

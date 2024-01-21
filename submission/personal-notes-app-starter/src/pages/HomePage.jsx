@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
-import { getAllNotes, deleteNote } from '../utils/local-data';
+import { getAllNotes, deleteNote, archiveNote } from '../utils/local-data';
 
 function HomePageWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -25,6 +25,7 @@ class HomePage extends React.Component {
 
         //? bind onEvent
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.onArchiveHandler = this.onArchiveHandler.bind(this);
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
     }
 
@@ -37,16 +38,18 @@ class HomePage extends React.Component {
             }
         });
     }
+
+    onArchiveHandler(id) {
+        archiveNote(id);
+        console.log(id)
+
+        this.setState(() => {
+            return {
+                notes: getAllNotes(),
+            }
+        });
+    }
     
-    // onKeywordChangeHandler(keyword) {
-    //     this.setState(() => {
-    //         return {
-    //             keyword,
-    //         }
-    //     });
-    //     //? menyelaraskan nilai keyword yang berada di Search Bar dengan URL
-    //     this.props.keywordChange(keyword);
-    // }
 
     onKeywordChangeHandler(keyword) {
         this.setState(() => {
@@ -59,19 +62,21 @@ class HomePage extends React.Component {
     }
 
     render() {
-        //? add condition by data state.contacts
-        const notes = this.state.notes.filter((notes) => {
-            return notes.title.toLowerCase().includes(
-                this.state.keyword.toLowerCase()
+        //? add condition data notes keyword + archived=false
+        const notes = this.state.notes.filter((note) => {
+            return (
+              note.title.toLowerCase().includes(this.state.keyword.toLowerCase()) &&
+              note.archived === false
             );
-        });
+          });
 
-        //? passing active notes
+        const valArvhive = 'Archive'
+
         return (
             <>
                 <h2 className="sixth">Active Notes</h2>
                 <section>
-                    <NoteList notes={notes} onDelete={this.onDeleteHandler} />
+                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} valueArchiveBtn={valArvhive}/>
                 </section>
             </>
         )
