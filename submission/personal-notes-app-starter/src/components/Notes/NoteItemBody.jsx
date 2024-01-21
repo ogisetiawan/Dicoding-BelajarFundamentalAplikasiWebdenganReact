@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'; //? define react-route link
 import { showFormattedDate } from '../../utils/index';
+import parser from 'html-react-parser';
 
 function NoteItemBody({ title, createdAt, body }) {
     const formattedDate = showFormattedDate(createdAt);
@@ -10,7 +11,7 @@ function NoteItemBody({ title, createdAt, body }) {
             <div className="cardInfo">
                 <Link className="cardTitle">{title}</Link>
                 <h6 className="cardSubTitle">{formattedDate}</h6>
-                <p className="cardText">{body}
+                <p className="cardText"> {parser(body)}
                 </p>
             </div>
         </div>
