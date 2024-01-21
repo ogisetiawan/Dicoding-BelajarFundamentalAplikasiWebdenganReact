@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
+import SearchForm from '../components/Header/SearchForm';
 import { getArchivedNotes, deleteNote, unarchiveNote } from '../utils/local-data';
 
 function ArvhivesPageWrapper() {
@@ -74,6 +75,7 @@ class ArvhivesPage extends React.Component {
             <>
                 <h2 className="sixth">Archive Notes</h2>
                 <section>
+                    <SearchForm keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
                     <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onUnarchiveHandler} valueArchiveBtn={valArvhive}/>
                 </section>
             </>

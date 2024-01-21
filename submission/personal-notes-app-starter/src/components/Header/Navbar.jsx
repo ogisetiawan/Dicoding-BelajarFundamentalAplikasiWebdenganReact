@@ -12,12 +12,13 @@ function Navbar() {
           <h2 className="logo">
             Personal Notes Apps
           </h2>
-          <Navigation />
+          {/* <Navigation /> */}
         </div>
 
         <div className="nav-end">
           <div className="right-container">
-            <SearchForm />
+            {/* <SearchForm /> */}
+            <Navigation />
             <Link to="/add" className="btn btn-primary"><HiOutlinePlus /> Create</Link>
           </div>
           <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">

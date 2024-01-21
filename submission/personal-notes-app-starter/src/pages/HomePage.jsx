@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
+import SearchForm from '../components/Header/SearchForm';
 import { getActiveNotes, deleteNote, archiveNote } from '../utils/local-data';
 
 function HomePageWrapper() {
@@ -52,6 +53,7 @@ class HomePage extends React.Component {
     
 
     onKeywordChangeHandler(keyword) {
+        console.log(keyword)
         this.setState(() => {
             return {
                 keyword,
@@ -75,6 +77,7 @@ class HomePage extends React.Component {
             <>
                 <h2 className="sixth">Active Notes</h2>
                 <section>
+                    <SearchForm keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
                     <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} valueArchiveBtn={valArvhive}/>
                 </section>
             </>

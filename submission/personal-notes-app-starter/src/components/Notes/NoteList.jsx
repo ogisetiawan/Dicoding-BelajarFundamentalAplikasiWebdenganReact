@@ -1,8 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import NoteItem from './NoteItem';
+import NoteEmpty from './NoteEmpty';
 
 function NoteList({ notes, valueArchiveBtn, onDelete, onArchive}) {
+  if(notes.length === 0){
+    return (
+      <NoteEmpty/>
+    )
+  }
   return (
     <div className="allCardsContainer">
     {
