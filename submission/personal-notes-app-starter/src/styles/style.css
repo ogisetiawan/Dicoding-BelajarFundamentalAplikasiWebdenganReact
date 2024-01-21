@@ -281,7 +281,7 @@ button {
   background: var(--white);
   border-radius: 10px;
   min-height: 220px;
-  max-width: 350px;
+  width: 350px;
   position: relative;
   margin: 10px;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -310,11 +310,15 @@ h6 {
   font-size: 1.25rem;
   margin-top: 0;
   margin-bottom: 0.75rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .cardSubTitle {
   font-size: 1rem;
   color: var(--dark-grey);
+  font-style: italic;
 }
 
 .cardText {
@@ -409,6 +413,37 @@ h2.sixth:hover:after {
   transform: translateX(5px);
 }
 
+
+.add-new-page__input {
+  margin-top: 32px;
+}
+
+.add-new-page__input .add-new-page__input__title {
+  background-color: initial;
+  border: 0;
+  color: var(--medium-grey);
+  font-family: Inter,sans-serif;
+  font-size: 40px;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.add-new-page__input .add-new-page__input__body {
+  background-color: initial;
+  border: 0;
+  color: var(--medium-grey);
+  font-family: Inter,sans-serif;
+  font-size: 20px;
+  min-height: 150px;
+  padding: 8px 0;
+  width: 100%;
+}
+
+[data-placeholder]:empty:before {
+  color: #c7c7c7;
+  color: var(--on-background-grey);
+  content: attr(data-placeholder);
+}
 
 
 @media (max-width: 1100px) {

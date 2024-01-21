@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'; //? define react-route link
+import { showFormattedDate } from '../../utils/index';
 
 function NoteItemBody({ title, createdAt, body }) {
-    const createdDate = new Date(createdAt);
-
-    const day = createdDate.getDate();
-    const month = createdDate.toLocaleString('default', { month: 'long' });
-    const year = createdDate.getFullYear();
-
-    const formattedDate = `${day}, ${month} ${year}`;
-
+    const formattedDate = showFormattedDate(createdAt);
     return (
         <div className="cardContent">
             <div className="cardInfo">
-                <h5 className="cardTitle">{title}</h5>
+                <Link className="cardTitle">{title}</Link>
                 <h6 className="cardSubTitle">{formattedDate}</h6>
                 <p className="cardText">{body}
                 </p>

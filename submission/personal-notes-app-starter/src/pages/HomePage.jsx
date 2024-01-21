@@ -20,11 +20,12 @@ class HomePage extends React.Component {
 
         this.state = {
             notes: getAllNotes(),//?create state
-            // keyword: props.defaultKeyword || '', //? isnull
+            keyword: props.defaultKeyword || '', //? isnull
         }
 
+        //? bind onEvent
         // this.onDeleteHandler = this.onDeleteHandler.bind(this);
-        // this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this); //? bind onEvent
+        this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
     }
 
     // onDeleteHandler(id) {
@@ -48,13 +49,22 @@ class HomePage extends React.Component {
     //     this.props.keywordChange(keyword);
     // }
 
+    onKeywordChangeHandler(keyword) {
+        this.setState(() => {
+            return {
+                keyword,
+            }
+        });
+        //? menyelaraskan nilai keyword yang berada di Search Bar dengan URL
+        this.props.keywordChange(keyword);
+    }
+
     render() {
         //? add condition by data state.contacts
         const notes = this.state.notes.filter((notes) => {
-            return notes;
-            // return notes.title.toLowerCase().includes(
-            //     this.state.keyword.toLowerCase()
-            // );
+            return notes.title.toLowerCase().includes(
+                this.state.keyword.toLowerCase()
+            );
         });
 
         //? passing active notes
