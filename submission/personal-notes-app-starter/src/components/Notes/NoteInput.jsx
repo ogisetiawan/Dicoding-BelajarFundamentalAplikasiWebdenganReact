@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HiOutlineSave } from "react-icons/hi";
+import ContentEditable from 'react-contenteditable';
 
 class NoteInput extends React.Component {
   constructor(props) {
     super(props);
 
-    //? inisialisasi state
+    // Inisialisasi state
     this.state = {
       title: '',
       body: '',
-    }
+    };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
     this.onTagChangeEventHandler = this.onTagChangeEventHandler.bind(this);
@@ -18,26 +19,21 @@ class NoteInput extends React.Component {
   }
 
   onTitleChangeEventHandler(event) {
-    this.setState(() => {
-      return {
-        title: event.target.value
-      }
+    this.setState({
+      title: event.target.value,
     });
   }
 
   onTagChangeEventHandler(event) {
-    this.setState(() => {
-      return {
-        body: event.target.innerHTML
-      }
+    this.setState({
+      body: event.target.value,
     });
   }
 
   onSubmitEventHandler(event) {
     event.preventDefault();
-    this.props.addNote(this.state); //? passing to addPage and local-data
+    this.props.addNote(this.state); // Passing to addPage and local-data
   }
-
 
   render() {
     return (
@@ -48,23 +44,26 @@ class NoteInput extends React.Component {
           value={this.state.title}
           onChange={this.onTitleChangeEventHandler}
         />
-        <div
+        <ContentEditable
           className="add-new-page__input__body"
-          contentEditable={true}
+          html={this.state.body}
+          onChange={this.onTagChangeEventHandler}
           data-placeholder="Description.."
-          value={this.state.body}
-          onInput={this.onTagChangeEventHandler}
-        ></div>
-        <button type="submit" className="btn btn-primary" onClick={this.onSubmitEventHandler}>
-        <HiOutlineSave /> Save
+        />
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={this.onSubmitEventHandler}
+        >
+          <HiOutlineSave /> Save
         </button>
       </div>
-    )
+    );
   }
 }
 
 NoteInput.propTypes = {
   addNote: PropTypes.func.isRequired,
-}
+};
 
 export default NoteInput;
