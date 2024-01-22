@@ -12,7 +12,7 @@ function SearchForm({keyword, keywordChange}) {
   );
 }
 
-SearchForm.propType = {
+SearchForm.propTypes = {
   keyword: PropTypes.string.isRequired,
   keywordChange: PropTypes.func.isRequired
 }

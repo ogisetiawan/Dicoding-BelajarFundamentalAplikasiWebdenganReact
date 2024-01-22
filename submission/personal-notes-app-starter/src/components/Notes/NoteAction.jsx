@@ -18,6 +18,7 @@ NoteAction.propTypes = {
     id: PropTypes.string.isRequired,
     onDelete: PropTypes.func.isRequired,
     onArchive: PropTypes.func.isRequired,
+    valueArchiveBtn: PropTypes.string.isRequired,
 }
 
 export default NoteAction;

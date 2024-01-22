@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
 import SearchForm from '../components/Header/SearchForm';
@@ -50,7 +51,7 @@ class HomePage extends React.Component {
             }
         });
     }
-    
+
 
     onKeywordChangeHandler(keyword) {
         console.log(keyword)
@@ -67,9 +68,9 @@ class HomePage extends React.Component {
         //? add condition data notes keyword + archived=false
         const notes = this.state.notes.filter((note) => {
             return (
-              note.title.toLowerCase().includes(this.state.keyword.toLowerCase())
+                note.title.toLowerCase().includes(this.state.keyword.toLowerCase())
             );
-          });
+        });
 
         const valArvhive = 'Archive'
 
@@ -78,11 +79,18 @@ class HomePage extends React.Component {
                 <h2 className="sixth">Active Notes</h2>
                 <section>
                     <SearchForm keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
-                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} valueArchiveBtn={valArvhive}/>
+                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} valueArchiveBtn={valArvhive} />
                 </section>
             </>
         )
     }
 }
+
+
+HomePage.propTypes = {
+    defaultKeyword: PropTypes.string,
+    keywordChange: PropTypes.func
+}
+
 
 export default HomePageWrapper;

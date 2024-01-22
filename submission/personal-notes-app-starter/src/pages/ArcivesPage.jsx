@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 import NoteList from '../components/Notes/NoteList';
 import SearchForm from '../components/Header/SearchForm';
@@ -49,7 +50,7 @@ class ArvhivesPage extends React.Component {
             }
         });
     }
-    
+
 
     onKeywordChangeHandler(keyword) {
         this.setState(() => {
@@ -65,9 +66,9 @@ class ArvhivesPage extends React.Component {
         //? add condition data notes keyword + archived=false
         const notes = this.state.notes.filter((note) => {
             return (
-              note.title.toLowerCase().includes(this.state.keyword.toLowerCase())
+                note.title.toLowerCase().includes(this.state.keyword.toLowerCase())
             );
-          });
+        });
 
         const valArvhive = 'UnArchive'
 
@@ -76,11 +77,16 @@ class ArvhivesPage extends React.Component {
                 <h2 className="sixth">Archive Notes</h2>
                 <section>
                     <SearchForm keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
-                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onUnarchiveHandler} valueArchiveBtn={valArvhive}/>
+                    <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onUnarchiveHandler} valueArchiveBtn={valArvhive} />
                 </section>
             </>
         )
     }
+}
+
+ArvhivesPage.propTypes = {
+    defaultKeyword: PropTypes.string,
+    keywordChange: PropTypes.func
 }
 
 export default ArvhivesPageWrapper;
