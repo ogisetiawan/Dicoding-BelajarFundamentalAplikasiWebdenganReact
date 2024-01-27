@@ -46,7 +46,7 @@ function HomePage() {
 
   return (
     <section className='homepage'>
-      <h2>{selectLanguage({ id: 'Catatan Aktif', en: 'Active Note' })}</h2>
+      <h2 className="sixth"> {selectLanguage({ id: 'Catatan Aktif', en: 'Active Note' })}</h2>
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
       <NoteList notes={filteredNotes} />
       <div className='homepage__action'>
