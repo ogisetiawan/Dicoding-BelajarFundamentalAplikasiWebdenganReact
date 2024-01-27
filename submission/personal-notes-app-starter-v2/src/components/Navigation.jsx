@@ -1,40 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ThemeContext from '../contexts/ThemeContext';
-import LocaleContext from '../contexts/LocaleContext';
-import { Link } from 'react-router-dom';
-import { FiLogOut, FiMoon, FiSun } from 'react-icons/fi';
-import { SiGoogletranslate } from 'react-icons/si';
+import React from "react";
+import PropTypes from "prop-types";
+import ThemeContext from "../contexts/ThemeContext";
+import LocaleContext from "../contexts/LocaleContext";
+import { Link } from "react-router-dom";
+import { HiOutlineViewList } from "react-icons/hi";
+import { HiOutlineArchive } from "react-icons/hi";
+import { HiOutlineTranslate } from "react-icons/hi";
+import { HiOutlineMoon } from "react-icons/hi";
+import { HiOutlineSun } from "react-icons/hi";
+import { HiOutlineLogout } from "react-icons/hi";
 
 function Navigation({ logout, name }) {
   const { theme, toggleTheme } = React.useContext(ThemeContext);
   const { toggleLocale, selectLanguage } = React.useContext(LocaleContext);
   return (
-    <>
-      <h1>
-        <Link to='/'>{selectLanguage({ id: 'Aplikasi Catatan', en: 'Notes App' })}</Link>
-      </h1>
-      {logout !== undefined && (
-        <nav className='navigation'>
-          <ul>
-            <li>
-              <Link to='/archives'>{selectLanguage({ id: 'Arsip', en: 'Archived' })}</Link>
-            </li>
-          </ul>
-        </nav>
-      )}
-      <button className='toggle-locale' onClick={toggleLocale}>
-        <SiGoogletranslate />
-      </button>
-      <button className='toggle-theme' onClick={toggleTheme}>
-        {theme === 'light' ? <FiMoon /> : <FiSun />}
-      </button>
-      {logout !== undefined && (
-        <button className='button-logout' onClick={logout} title='Logout'>
-          <FiLogOut /> {name}
-        </button>
-      )}
-    </>
+    <div className="container">
+      <div className="nav-start">
+        <h2 className="logo">
+          {selectLanguage({ id: "Aplikasi Catatan Pribadi", en: "Personal Notes Apps" })}
+        </h2>
+      </div>
+      <div className="nav-end">
+        <div className="right-container">
+          {logout !== undefined && (
+            <nav className="menu">
+              <ul className="menu-bar">
+                <li><Link className="nav-link" to="/"><HiOutlineViewList /> {selectLanguage({ id: "Aktif", en: "Active" })}</Link></li>
+                <li><Link className="nav-link" to="/archives"><HiOutlineArchive /> {selectLanguage({ id: "Arsip", en: "Archives" })}</Link></li>
+                |
+              </ul>
+            </nav>
+          )}
+          <button className="nav-button" onClick={toggleLocale} title="Translate"> <HiOutlineTranslate /></button>
+          <button className="nav-button" onClick={toggleTheme} title="Theme">
+            {theme === "light" ?<HiOutlineMoon /> : <HiOutlineSun />}
+          </button>
+          {logout !== undefined && (
+            <button className="btn btn-primary" onClick={logout} title="Logout">
+             <span className="ml">Hi, {name}</span>  <HiOutlineLogout /> 
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 

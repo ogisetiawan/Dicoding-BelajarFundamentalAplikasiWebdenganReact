@@ -87,7 +87,7 @@ function App() {
       <LocaleContext.Provider value={localeContextValue}>
         <ThemeContext.Provider value={themeContextValue}>
           <div className='app-container'>
-            <header>
+          <header id="nav-menu" aria-label="navigation bar">
               <Navigation />
             </header>
             <main>
@@ -106,7 +106,7 @@ function App() {
     <LocaleContext.Provider value={localeContextValue}>
       <ThemeContext.Provider value={themeContextValue}>
         <div className='app-container'>
-          <header>
+          <header id="nav-menu" aria-label="navigation bar">
             <Navigation logout={onLogout} name={authedUser.name} toggleTheme={toggleTheme} />
           </header>
           <main>
