@@ -45,7 +45,8 @@ function HomePage() {
   }
 
   return (
-    <section className='homepage'>
+    <>
+    
       <h2 className="sixth"> {selectLanguage({ id: 'Catatan Aktif', en: 'Active Note' })}</h2>
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
       <NoteList notes={filteredNotes} />
@@ -56,7 +57,8 @@ function HomePage() {
           icon={<FiPlus />}
         />
       </div>
-    </section>
+    
+    </>
   );
 }
 export default HomePage;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import FooterApp from './components/FooterApp';
 import HomePage from './pages/HomePage';
 import ArsipPage from './pages/ArsipPage';
 import AddPage from './pages/AddPage';
@@ -96,6 +97,7 @@ function App() {
                 <Route path='/register' element={<RegisterPage />} />
               </Routes>
             </main>
+          <FooterApp />
           </div>
         </ThemeContext.Provider>
       </LocaleContext.Provider>
@@ -118,6 +120,7 @@ function App() {
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </main>
+          <FooterApp />
         </div>
       </ThemeContext.Provider>
     </LocaleContext.Provider>

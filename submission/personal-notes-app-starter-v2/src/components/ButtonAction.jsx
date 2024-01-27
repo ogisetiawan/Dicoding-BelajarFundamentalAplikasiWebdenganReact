@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function ButtonAction({ title, onClick, icon }) {
   return (
-    <button className='action' type='button' title={title} onClick={onClick}>
+    <button className='btn btn-primary action' type='button' title={title} onClick={onClick}>
       {icon}
     </button>
   );
