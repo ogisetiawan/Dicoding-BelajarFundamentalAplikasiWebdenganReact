@@ -18,6 +18,7 @@
   --on-background: #9a9cae;
   --on-background-grey: #c7c7c7;
   --on-surface: #fff;
+  --on-search: #f4f4f4
   /*  */
   --dark-grey: #333333;
   --medium-grey: #636363;
@@ -34,9 +35,10 @@
 [data-theme='light'] {
   --background: #fff;
   --light-grey: #eeeeee;
-  --on-background: #333;
+  --on-background: #15171C;
   --on-background-grey: #6d6d6d;
-  --on-surface: #333;
+  --on-surface: var(--on-background);
+  --border: 1px solid rgba(0, 0, 0, 0.125)
 }
 
 /* @ UTILS */
@@ -321,12 +323,112 @@ h2.sixth:hover:after {
   transform: translateX(5px);
 }
 
+/* @ ALERT */
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
 /* @ MAIN */
 main {
   margin: 0 auto;
   max-width: 1200px;
   padding: 32px 0;
   width: 90%;
+}
+
+/* @ CARD */
+.allCardsContainer {
+  max-width: 1150px;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.eachCard {
+  /* background: var(--white); */
+  border-radius: 10px;
+  min-height: 220px;
+  width: 350px;
+  position: relative;
+  margin: 10px;
+  border: var(--border)
+}
+
+.eachCard:hover {
+  box-shadow: 0 4px 10px #00000030;
+}
+
+.cardContent {
+  display: flex;
+  padding: 30px;
+}
+
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.cardTitle {
+  line-height: 1.2;
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.cardSubTitle {
+  font-size: 1rem;
+  color: var(--on-background-grey);
+  font-style: italic;
+}
+
+.cardText {
+  margin-top: 15px;
+  line-height: 1.6;
+  font-weight: normal;
+  opacity: 1;
+  color: var(--on-background);
+  transition: all 0.5s cubic-bezier(0.83, 0, 0.18, 0.78);
+}
+
+.userActions {
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.83, 0, 0.18, 0.78);
+  position: absolute;
+  bottom: 0;
+}
+
+.eachCard:hover .cardText {
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.83, 0, 0.18, 0.78);
+}
+
+.eachCard:hover .userActions {
+  /* background: #f1f1f1; */
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+  opacity: 1;
+  transition: all 0.5s cubic-bezier(0.83, 0, 0.18, 0.78);
 }
 
 .notes-list {

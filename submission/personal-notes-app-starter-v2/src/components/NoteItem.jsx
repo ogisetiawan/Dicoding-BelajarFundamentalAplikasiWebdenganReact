@@ -8,15 +8,16 @@ import { Link } from 'react-router-dom';
 function NoteItem({ id, title, body, createdAt }) {
   const { selectLanguage } = React.useContext(LocaleContext);
   return (
-    <article className='note-item'>
-      <h3 className='note-item__title'>
-        <Link to={`/notes/${id}`}>{title}</Link>
-      </h3>
-      <p className='note-item__createdAt'>
-        {selectLanguage({ id: showFormattedDate(createdAt, 'id-ID'), en: showFormattedDate(createdAt, 'en-US') })}
-      </p>
-      <p className='note-item__body'>{parser(body)}</p>
-    </article>
+    <div className='eachCard'>
+       <div className="cardContent">
+          <div className="cardInfo">
+          <Link to={`/notes/${id}`} className="cardTitle">{title}</Link>
+              <h6 className="cardSubTitle">{selectLanguage({ id: showFormattedDate(createdAt, 'id-ID'), en: showFormattedDate(createdAt, 'en-US') })}</h6>
+              <p className="cardText"> {parser(body)}
+              </p>
+          </div>
+      </div>
+    </div>
   );
 }
 

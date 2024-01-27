@@ -8,16 +8,14 @@ function NoteList({ notes }) {
   return (
     <div>
       {notes?.length > 0 ? (
-        <section className='notes-list'>
+        <section className='allCardsContainer'>
           {notes.map(({ id, title, body, createdAt }) => (
             <NoteItem key={id} id={id} title={title} body={body} createdAt={createdAt} />
           ))}
         </section>
       ) : (
-        <section className='notes-list-empty'>
-          <p className='notes-list__empty'>
-            {selectLanguage({ id: 'Tidak ada catatan yang tersedia.', en: 'No notes available.' })}
-          </p>
+        <section className='alert alert-warning'>
+            {selectLanguage({ id: 'Ups, Catatan tidak ditemukan!', en: 'Oops, Notes not found!' })}
         </section>
       )}
     </div>
