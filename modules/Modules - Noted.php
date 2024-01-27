@@ -23,3 +23,36 @@
 //? useParams(): mengembalikan objek yang nilai propertinya merupakan path parameter dari URL yang aktif.
 //? useNavigate(): mengembalikan fungsi yang digunakan untuk menavigasi halaman secara terprogram (programatically).
 //? hooks, tidak dapat digunakan pada class, hanya pada functional component
+
+//@ Component lifecycle
+//? prosess async await, yg tdk langsung render oleh dom, tapi check funct await lalu render lg
+//~ Fase Component Lifecycle
+//? - Saat komponen ditambahkan ke DOM (mounting).
+//? - Saat komponen memperbarui state atau menerima data baru via props (updating)
+//? - Saat komponen dihapus dari DOM (unmounting).
+//~ Fase Updating
+//? Fase ini terjadi bila ada perubahan nilai state atau props
+//? - me-render ulang UI dengan nilai state atau props terbaru
+//~ method lifecycle
+/// class App extends React.Component {
+///     constructor(props) {
+///       // Cocok untuk menginisialisasi nilai state
+///       super(props)
+///       this.state = {}
+///     }
+///     componentDidMount(){
+///       // Dipanggil sekali ketika komponen ditambahkan ke DOM.
+///       // Cocok untuk membuat AJAX request.
+///     }
+///     componentDidUpdate(){
+///       // Dipanggil seketika setelah terdapat pembaruan nilai props atau state.
+///       // Cocok untuk melakukan AJAX requests yang didasari oleh perubahan nilai props atau state.
+///     }
+///     componentWillUnmount(){
+///       // Dipanggil tepat sebelum komponen dihapus dari DOM.
+///       // Cocok untuk perihal bersih-bersih (cleanup).
+///     }
+///     render() {
+///       return ...
+///     }
+///   }
