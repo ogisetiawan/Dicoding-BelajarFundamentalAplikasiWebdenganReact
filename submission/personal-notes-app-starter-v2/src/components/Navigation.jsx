@@ -16,7 +16,7 @@ function Navigation({ logout, name }) {
   return (
     <div className="container">
       <div className="nav-start">
-        <div class="thirteen">
+        <div className="thirteen">
           <h1 className="logo">
             {selectLanguage({ id: "Aplikasi Catatan Pribadi", en: "Personal Notes Apps" })}
           </h1>
