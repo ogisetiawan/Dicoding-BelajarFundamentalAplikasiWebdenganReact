@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import useInput from "../hooks/useInput";
-import LocaleContext from "../contexts/LocaleContext";
+import useInput from "../../hooks/useInput";
+import LocaleContext from "../../contexts/LocaleContext";
 
 function LoginInput({ login }) {
   const { selectLanguage } = React.useContext(LocaleContext);

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import parser from "html-react-parser";
-import LocaleContext from "../contexts/LocaleContext";
-import { showFormattedDate } from "./../utils/index";
+import LocaleContext from "../../contexts/LocaleContext";
+import { showFormattedDate } from "./../../utils/index";
 import { Link } from "react-router-dom";
 
 function NoteItem({ id, title, body, createdAt }) {

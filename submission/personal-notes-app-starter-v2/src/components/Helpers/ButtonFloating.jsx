@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function ButtonAction({ title, onClick, icon }) {
+function ButtionFloating({ title, onClick, icon }) {
   return (
     <button className="btn btn-primary action" type="button" title={title} onClick={onClick}>
       {icon}
@@ -9,10 +9,10 @@ function ButtonAction({ title, onClick, icon }) {
   );
 }
 
-ButtonAction.propTypes = {
+ButtionFloating.propTypes = {
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   icon: PropTypes.object.isRequired
 };
 
-export default ButtonAction;
+export default ButtionFloating;

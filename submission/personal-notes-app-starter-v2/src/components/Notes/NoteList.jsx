@@ -1,7 +1,7 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 import PropTypes from "prop-types";
-import LocaleContext from "../contexts/LocaleContext";
+import LocaleContext from "../../contexts/LocaleContext";
 
 function NoteList({ notes }) {
   const { selectLanguage } = React.useContext(LocaleContext);

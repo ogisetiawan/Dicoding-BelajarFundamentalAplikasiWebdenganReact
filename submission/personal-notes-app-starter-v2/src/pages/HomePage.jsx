@@ -1,8 +1,8 @@
 import React from "react";
-import NoteList from "../components/NoteList";
-import SearchBar from "../components/SearchBar";
-import ButtonAction from "../components/ButtonAction";
-import Loading from "../components/Loading";
+import NoteList from "../components/Notes/NoteList";
+import SearchBar from "../components/Helpers/SearchBar";
+import ButtonFloating from "../components/Helpers/ButtonFloating";
+import Loading from "../components/Helpers/Loading";
 import LocaleContext from "../contexts/LocaleContext";
 import { getActiveNotes } from "../utils/network-data";
 import { useSearchParams } from "react-router-dom";
@@ -13,7 +13,7 @@ function HomePage() {
   const { selectLanguage } = React.useContext(LocaleContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const [notes, setNotes] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
+  const [Loader, setLoader] = React.useState(true);
 
   const [keyword, setKeyword] = React.useState(() => {
     return searchParams.get("keyword") || "";
@@ -22,7 +22,7 @@ function HomePage() {
   React.useEffect(() => {
     getActiveNotes().then(({ data }) => {
       setNotes(data);
-      setLoading(false);
+      setLoader(false);
     });
   }, []);
 
@@ -40,7 +40,7 @@ function HomePage() {
     return title.toLowerCase().includes(keyword.toLowerCase());
   });
 
-  if (loading) {
+  if (Loader) {
     return <Loading />;
   }
 
@@ -50,7 +50,7 @@ function HomePage() {
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
       <NoteList notes={filteredNotes} />
       <div className="homepage__action">
-        <ButtonAction
+        <ButtonFloating
           title={selectLanguage({ id: "Tambah", en: "Add" })}
           onClick={onAddButtonHandler}
           icon={<FiPlus />}

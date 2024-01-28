@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ThemeContext from "../contexts/ThemeContext";
-import LocaleContext from "../contexts/LocaleContext";
+import ThemeContext from "../../contexts/ThemeContext";
+import LocaleContext from "../../contexts/LocaleContext";
 import { Link } from "react-router-dom";
 import { HiOutlineViewList } from "react-icons/hi";
 import { HiOutlineArchive } from "react-icons/hi";

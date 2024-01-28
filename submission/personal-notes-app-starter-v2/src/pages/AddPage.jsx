@@ -1,6 +1,6 @@
 import React from "react";
-import NoteInput from "../components/NoteInput";
-import ButtonAction from "../components/ButtonAction";
+import NoteInput from "../components/Notes/NoteInput";
+import ButtonFloating from "../components/Helpers/ButtonFloating";
 import LocaleContext from "../contexts/LocaleContext";
 import { addNote } from "../utils/network-data";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +42,7 @@ function AddPage() {
       <h2 className="sixth">Create Notes</h2>
       <NoteInput state={newNote} onTitleChange={onTitleChangeEventHandler} onBodyInput={onBodyInputEventHandler} />
       <div className="add-new-page__action">
-        <ButtonAction
+        <ButtonFloating
           title={selectLanguage({ id: "Simpan", en: "Save" })}
           onClick={onSaveNoteHandler}
           icon={<FiCheck />}

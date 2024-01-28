@@ -1,5 +1,5 @@
 import React from "react";
-import RegisterInput from "../components/RegisterInput";
+import RegisterInput from "../components/Auth/RegisterInput";
 import LocaleContext from "../contexts/LocaleContext";
 import { register } from "../utils/network-data";
 import { Link, useNavigate } from "react-router-dom";

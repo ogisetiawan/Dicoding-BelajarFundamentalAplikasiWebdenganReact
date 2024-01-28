@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import LocaleContext from "../contexts/LocaleContext";
+import LocaleContext from "../../contexts/LocaleContext";
 
 function NoteInput({ state, onTitleChange, onBodyInput }) {
   const { selectLanguage } = React.useContext(LocaleContext);

@@ -1,7 +1,7 @@
 import React from "react";
-import ButtonAction from "../components/ButtonAction";
-import NoteDetail from "../components/NoteDetail";
-import Loading from "../components/Loading";
+import ButtonFloating from "../components/Helpers/ButtonFloating";
+import NoteDetail from "../components/Notes/NoteDetail";
+import Loading from "../components/Helpers/Loading";
 import LocaleContext from "../contexts/LocaleContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { getNote, deleteNote, archiveNote, unarchiveNote } from "../utils/network-data";
@@ -14,12 +14,12 @@ function DetailPage() {
   const navigate = useNavigate();
 
   const [note, setNote] = React.useState({});
-  const [loading, setLoading] = React.useState(true);
+  const [Loader, setLoader] = React.useState(true);
 
   React.useEffect(() => {
     getNote(id).then(({ data }) => {
       setNote(data);
-      setLoading(false);
+      setLoader(false);
     });
   }, []);
 
@@ -38,7 +38,7 @@ function DetailPage() {
     navigate("/archives");
   }
 
-  if (loading) {
+  if (Loader) {
     return <Loading />;
   }
 
@@ -54,7 +54,7 @@ function DetailPage() {
     <section>
       <NoteDetail {...note} />
       <div className="detail-page__action">
-        <ButtonAction
+        <ButtonFloating
           title={
             note.archived
               ? selectLanguage({ id: "Aktifkan", en: "Activate" })
@@ -63,7 +63,7 @@ function DetailPage() {
           onClick={note.archived ? unarchiveNoteHandler : archiveNotenHandler}
           icon={note.archived ? <BiArchiveOut /> : <BiArchiveIn />}
         />
-        <ButtonAction
+        <ButtonFloating
           title={selectLanguage({ id: "Hapus", en: "Delete" })}
           onClick={deleteNotenHandler}
           icon={<FiTrash2 />}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import FooterApp from './components/FooterApp';
+import Navigation from './components/Header/Navigation';
+import FooterApp from './components/Footer/FooterApp';
 import HomePage from './pages/HomePage';
 import ArsipPage from './pages/ArsipPage';
 import AddPage from './pages/AddPage';
