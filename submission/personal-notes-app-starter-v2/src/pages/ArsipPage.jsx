@@ -38,7 +38,7 @@ function ArsipPage() {
 
   return (
     <section className='homepage'>
-      <h2 className="sixth"> {selectLanguage({ id: 'Catatan Arsip', en: 'Archived Note' })}</h2>
+      <h2 className="sixth"> {selectLanguage({ id: 'Catatan Arsip', en: 'Archives Note' })}</h2>
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
       <NoteList notes={filteredNotes} />
     </section>

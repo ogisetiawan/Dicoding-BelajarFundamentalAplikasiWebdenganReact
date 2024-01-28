@@ -8,7 +8,7 @@ function NoteInput({ state, onTitleChange, onBodyInput }) {
     <div className='add-new-page__input'>
       <input
         className='add-new-page__input__title'
-        placeholder={selectLanguage({ id: 'Catatan rahasia', en: 'Secret note' })}
+        placeholder={selectLanguage({ id: 'Judul..', en: 'Title..' })}
         value={state.title}
         onChange={onTitleChange}
         spellCheck='false'
@@ -16,7 +16,7 @@ function NoteInput({ state, onTitleChange, onBodyInput }) {
       <div
         className='add-new-page__input__body'
         contentEditable='true'
-        data-placeholder={selectLanguage({ id: 'Sebenarnya, saya adalah ....', en: 'Actually, i am ...' })}
+        data-placeholder={selectLanguage({ id: 'Deksripsi..', en: 'Descriptions..' })}
         onInput={onBodyInput}
         spellCheck='false'
         suppressContentEditableWarning={true}

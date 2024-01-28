@@ -39,6 +39,7 @@ function AddPage() {
 
   return (
     <section className='add-new-page'>
+      <h2 className="sixth">Create Notes</h2>
       <NoteInput state={newNote} onTitleChange={onTitleChangeEventHandler} onBodyInput={onBodyInputEventHandler} />
       <div className='add-new-page__action'>
         <ButtonAction

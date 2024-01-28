@@ -8,12 +8,12 @@
 }
 
 :root {
-  --primary: #bb86fc;
+  /* --primary: #bb86fc;
   --primary-variant: #107eff;
-  --secondary: #03dac6;
+  --secondary: #03dac6; */
   --background: #1E2027;
-  --error: #cf6679;
-  --warning: #f39c12;
+  /* --error: #cf6679;
+  --warning: #f39c12; */
   --on-background: #9a9cae;
   --on-background-grey: #c7c7c7;
   --on-surface: #fff;
@@ -24,7 +24,7 @@
   --light-grey: #9a9cae;
   --ash: var(--background);
   --primary-color: #107eff;
-  --danger-color: #e74c3c;
+  --danger-color: #E42855;
   --white: #ffffff;
   --border: 1px solid var(--light-grey);
   --shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
@@ -358,10 +358,10 @@ main {
 
 .eachCard {
   border-radius: 10px;
-  min-height: 220px;
+  min-height: 265px;
   width: 350px;
   position: relative;
-  margin: 10px;
+  margin: 10px 25px 10px 0;
   border: var(--border)
 }
 
@@ -406,6 +406,10 @@ h6 {
   opacity: 1;
   color: var(--on-background);
   transition: all 0.5s cubic-bezier(0.83, 0, 0.18, 0.78);
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
 
 .userActions {
@@ -487,6 +491,7 @@ h6 {
   word-wrap: break-word;
   font-size: 48px;
   margin-bottom: 8px;
+  color: var(--primary-color);
 }
 
 .detail-page__createdAt {
@@ -532,33 +537,20 @@ h6 {
 .add-new-page__input .add-new-page__input__title {
   background-color: initial;
   border: 0;
-  color: #fff;
-  color: var(--on-background);
-  font-family: Inter, sans-serif;
-  font-size: 64px;
-  font-weight: 700;
+  color: var(--medium-grey);
+  font-family: Inter,sans-serif;
+  font-size: 40px;
   padding: 8px 0;
   width: 100%;
-}
-
-.add-new-page__input__title::-webkit-input-placeholder {
-  color: #c7c7c7;
-  color: var(--on-background-grey);
-}
-
-.add-new-page__input__title::placeholder {
-  color: #c7c7c7;
-  color: var(--on-background-grey);
 }
 
 .add-new-page__input .add-new-page__input__body {
   background-color: initial;
   border: 0;
-  color: #fff;
-  color: var(--on-background);
-  font-family: Inter, sans-serif;
-  font-size: 24px;
-  min-height: 500px;
+  color: var(--medium-grey);
+  font-family: Inter,sans-serif;
+  font-size: 20px;
+  min-height: 150px;
   padding: 8px 0;
   width: 100%;
 }
@@ -571,7 +563,6 @@ h6 {
 
 /* //@ FOOTER */
 footer {
-  position: fixed;
   margin-top:10px;
   bottom: 0;
   width: 100%;

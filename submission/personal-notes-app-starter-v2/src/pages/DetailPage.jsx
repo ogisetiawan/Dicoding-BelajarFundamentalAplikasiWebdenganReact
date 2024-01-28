@@ -44,9 +44,9 @@ function DetailPage() {
 
   if (note === null) {
     return (
-      <p>
-        {selectLanguage({ id: `Note dengan ID "${id}" tidak tersedia.`, en: `Note with ID "${id}" not available.` })}
-      </p>
+      <section className='alert alert-warning'>
+        {selectLanguage({ id: `Ups, "${id}" tidak ditemukan!`, en: `Oops, "${id}" not found!` })}
+    </section>
     );
   }
 

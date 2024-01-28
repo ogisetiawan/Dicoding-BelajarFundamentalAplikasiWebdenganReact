@@ -6,7 +6,7 @@ import LocaleContext from '../contexts/LocaleContext';
 function NoteList({ notes }) {
   const { selectLanguage } = React.useContext(LocaleContext);
   return (
-    <div>
+    <>
       {notes?.length > 0 ? (
         <section className='allCardsContainer'>
           {notes.map(({ id, title, body, createdAt }) => (
@@ -18,7 +18,7 @@ function NoteList({ notes }) {
             {selectLanguage({ id: 'Ups, Catatan tidak ditemukan!', en: 'Oops, Notes not found!' })}
         </section>
       )}
-    </div>
+    </>
   );
 }
 
