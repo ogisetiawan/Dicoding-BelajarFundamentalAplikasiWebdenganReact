@@ -17,11 +17,12 @@ function RegisterPage() {
 
   return (
     <section className='register-page'>
-      <h2>{selectLanguage({ id: 'Isi form untuk mendaftar akun.', en: 'Fill the form to register account.' })}</h2>
+      <h2 className='text-center'>{selectLanguage({ id: 'Mendafar', en: 'Sign Up' })}</h2>
+      <h3 className='text-center text-muted fw-semibold fs-6'>{selectLanguage({ id: 'Silahkan daftar untuk mengakses', en: 'Please sign up to access' })}</h3>
       <RegisterInput register={onRegisterHandler} />
       <p>
-        {selectLanguage({ id: 'Sudah punya akun?', en: 'Already have an account' })}{' '}
-        <Link to='/'>{selectLanguage({ id: 'Login di sini', en: 'Login here' })}</Link>
+        {selectLanguage({ id: 'Sudah punya akun?', en: 'Already have an account?' })}{' '}
+        <Link className="register-link" to='/'>{selectLanguage({ id: 'Login di sini', en: 'Login here' })}</Link>
       </p>
     </section>
   );

@@ -29,6 +29,7 @@
   --border: 1px solid var(--light-grey);
   --shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  --footer: #15171c;
 }
 
 [data-theme='light'] {
@@ -40,6 +41,7 @@
   --border: 1px solid rgba(0, 0, 0, 0.125);
   --dark-grey: #333333;
   --ash: var(--background);
+  --footer: #f4f4f4;
 }
 
 /* @ UTILS */
@@ -65,6 +67,17 @@ ul {
   margin-right: 10rem;
 }
 
+.text-center {
+  text-align: center!important;
+} 
+
+.fw-semibold {
+  font-weight: 500!important;
+}
+.fs-6 {
+  font-size: 1.075rem!important;
+}
+
 body {
   font-family: inherit;
   background-color: var(--white);
@@ -73,9 +86,7 @@ body {
 }
 
 .app-container {
-  background-color: #121212;
   background-color: var(--background);
-  color: #fff;
   color: var(--on-background);
   min-height: 100vh;
   transition: all 0.5s ease-in-out;
@@ -193,7 +204,7 @@ button {
   display: flex;
   align-items: center;
 }
-
+/* 
 .dropdown {
   display: flex;
   flex-direction: column;
@@ -242,7 +253,7 @@ button {
 .dropdown-link p {
   font-size: 0.8rem;
   color: var(--medium-grey);
-}
+} */
 
 .right-container {
   display: flex;
@@ -261,7 +272,7 @@ button {
 /* //@ SEARCH */
 .search {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .search input {
@@ -342,8 +353,8 @@ h2.sixth:hover:after {
 main {
   margin: 0 auto;
   max-width: 1200px;
-  padding: 32px 0;
   width: 90%;
+  padding-top: 15px;
 }
 
 /* @ CARD */
@@ -563,13 +574,12 @@ h6 {
 
 /* //@ FOOTER */
 footer {
-  margin-top:10px;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
+  height: 50px;
+  line-height: 50px;
   font-size: 14px;
-  background-color: initial;
   text-align: center;
   border-top: var(--border);
 }
@@ -585,9 +595,25 @@ footer a,
   color: #6c757d !important;
 }
 
+/* @ LOGIN & REGISTER */
+
+section.login-page,
+section.register-page {
+  width: 600px!important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.register-page{
+  min-height: 600px;
+}
+
+.register-link{
+  color: var(--primary-color)
+}
 .input-login,
 .input-register {
-  margin: 32px 0;
+  margin: 10px 0px 25px 0;
 }
 
 .input-login label,
@@ -599,10 +625,8 @@ footer a,
 .input-login input,
 .input-register input {
   background-color: initial;
-  border: 3px solid #fff;
-  border: 3px solid var(--on-background);
+  border: 1px solid var(--on-background);
   border-radius: 8px;
-  color: #fff;
   color: var(--on-background);
   display: block;
   font-family: Inter, sans-serif;
@@ -613,7 +637,12 @@ footer a,
   width: 100%;
 }
 
-.input-login button,
+
+.d-grid {
+  display: grid!important;
+}
+
+/* .input-login button,
 .input-register button {
   background-color: #fff;
   background-color: var(--on-background);
@@ -627,7 +656,7 @@ footer a,
   font-weight: 700;
   padding: 12px;
   width: 100%;
-}
+} */
 
 .button-logout {
   align-items: center;

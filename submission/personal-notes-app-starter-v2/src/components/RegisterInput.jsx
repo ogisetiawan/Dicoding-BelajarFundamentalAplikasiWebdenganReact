@@ -25,13 +25,13 @@ function RegisterInput({ register }) {
   return (
     <div className='input-register'>
       <form onSubmit={onSubmitHandler}>
-        <label htmlFor='name'>{selectLanguage({ id: 'Nama', en: 'Name' })}</label>
+        <label className='text-muted fw-semibold fs-6'>{selectLanguage({ id: 'Nama', en: 'Name' })}</label>
         <input type='text' id='name' value={name} onChange={onNameChange} />
-        <label htmlFor='email'>Email</label>
+        <label className='text-muted fw-semibold fs-6'>Email</label>
         <input type='email' id='email' value={email} onChange={onEmailChange} autoComplete='new-email' />
-        <label htmlFor='password'>{selectLanguage({ id: 'Kata Sandi', en: 'Password' })}</label>
+        <label className='text-muted fw-semibold fs-6'>{selectLanguage({ id: 'Kata Sandi', en: 'Password' })}</label>
         <input type='password' id='password' value={password} onChange={onPasswordChange} autoComplete='new-password' />
-        <label htmlFor='confirmPassword'>
+        <label className='text-muted fw-semibold fs-6'>
           {selectLanguage({ id: 'Konfirmasi Kata Sandi', en: 'Confirm Password' })}
         </label>
         <input
@@ -41,7 +41,9 @@ function RegisterInput({ register }) {
           onChange={onConfirmPasswordChange}
           autoComplete='new-confirm-password'
         />
-        <button type='submit'>{selectLanguage({ id: 'Daftar', en: 'Register' })}</button>
+          <div className='d-grid'>
+          <button className='btn btn-primary' type='submit'>{selectLanguage({ id: 'Mendaftar', en: 'Sign Up' })}</button>
+        </div>
       </form>
     </div>
   );

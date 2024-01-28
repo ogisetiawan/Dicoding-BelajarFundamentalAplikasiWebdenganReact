@@ -19,11 +19,13 @@ function LoginInput({ login }) {
   return (
     <div className='input-login'>
       <form onSubmit={onSubmitHandler}>
-        <label htmlFor='email'>Email</label>
+        <label className='text-muted fw-semibold fs-6'>Email</label>
         <input type='email' id='email' value={email} onChange={onEmailChange} autoComplete='new-email' />
-        <label htmlFor='password'>{selectLanguage({ id: 'Kata Sandi', en: 'Password' })}</label>
+        <label className='text-muted fw-semibold fs-6'>{selectLanguage({ id: 'Kata Sandi', en: 'Password' })}</label>
         <input type='password' id='password' value={password} onChange={onPasswordChange} autoComplete='new-password' />
-        <button type='submit'>Login</button>
+        <div className='d-grid'>
+          <button className='btn btn-primary' type='submit'>{selectLanguage({ id: 'Masuk', en: 'Sign in' })}</button>
+        </div>
       </form>
     </div>
   );

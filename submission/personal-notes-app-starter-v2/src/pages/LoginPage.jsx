@@ -18,11 +18,12 @@ function LoginPage({ loginSuccess }) {
 
   return (
     <section className='login-page'>
-      <h2>{selectLanguage({ id: 'Yuk, login untuk menggunakan aplikasi.', en: 'Login to use app, please.' })}</h2>
+      <h2 className='text-center'>{selectLanguage({ id: 'Masuk', en: 'Sign in' })}</h2>
+      <h3 className='text-center text-muted fw-semibold fs-6'>{selectLanguage({ id: 'Silahkan masuk untuk mengakses', en: 'Please log in to access' })}</h3>
       <LoginInput login={onLogin} />
       <p>
-        {selectLanguage({ id: 'Belum punya akun?', en: "Don't have an account?" })}{' '}
-        <Link to='/register'>{selectLanguage({ id: 'Daftar di sini', en: 'Register here' })}</Link>
+        {selectLanguage({ id: 'Belum menjadi anggota?', en: "Not a Member yet?" })}{' '}
+        <Link className="register-link" to='/register'>{selectLanguage({ id: 'Daftar di sini', en: 'Register here' })}</Link>
       </p>
     </section>
   );
