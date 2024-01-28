@@ -88,7 +88,7 @@ function App() {
       <LocaleContext.Provider value={localeContextValue}>
         <ThemeContext.Provider value={themeContextValue}>
           <div className='app-container'>
-          <header id="nav-menu" aria-label="navigation bar">
+            <header id="nav-menu" aria-label="navigation bar">
               <Navigation />
             </header>
             <main>
@@ -97,8 +97,8 @@ function App() {
                 <Route path='/register' element={<RegisterPage />} />
               </Routes>
             </main>
-          <FooterApp />
           </div>
+            <FooterApp />
         </ThemeContext.Provider>
       </LocaleContext.Provider>
     );
@@ -120,8 +120,8 @@ function App() {
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </main>
-          <FooterApp />
         </div>
+        <FooterApp />
       </ThemeContext.Provider>
     </LocaleContext.Provider>
   );

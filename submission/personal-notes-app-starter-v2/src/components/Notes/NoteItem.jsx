@@ -11,9 +11,9 @@ function NoteItem({ id, title, body, createdAt }) {
     <div className="eachCard">
        <div className="cardContent">
           <div className="cardInfo">
-          <Link to={`/notes/${id}`} className="cardTitle">{title}</Link>
+              <Link to={`/notes/${id}`} className="cardTitle">{title}</Link>
               <h6 className="cardSubTitle">{selectLanguage({ id: showFormattedDate(createdAt, "id-ID"), en: showFormattedDate(createdAt, "en-US") })}</h6>
-              <p className="cardText"> {parser(body)}</p>
+              <span className="cardText">{parser(body)}</span>
           </div>
       </div>
     </div>
