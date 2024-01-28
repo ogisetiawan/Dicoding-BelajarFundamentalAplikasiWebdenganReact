@@ -1,13 +1,13 @@
-import React from 'react';
-import NoteList from '../components/NoteList';
-import SearchBar from '../components/SearchBar';
-import ButtonAction from '../components/ButtonAction';
-import Loading from '../components/Loading';
-import LocaleContext from '../contexts/LocaleContext';
-import { getActiveNotes } from '../utils/network-data';
-import { useSearchParams } from 'react-router-dom';
-import { FiPlus } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import NoteList from "../components/NoteList";
+import SearchBar from "../components/SearchBar";
+import ButtonAction from "../components/ButtonAction";
+import Loading from "../components/Loading";
+import LocaleContext from "../contexts/LocaleContext";
+import { getActiveNotes } from "../utils/network-data";
+import { useSearchParams } from "react-router-dom";
+import { FiPlus } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const { selectLanguage } = React.useContext(LocaleContext);
@@ -16,7 +16,7 @@ function HomePage() {
   const [loading, setLoading] = React.useState(true);
 
   const [keyword, setKeyword] = React.useState(() => {
-    return searchParams.get('keyword') || '';
+    return searchParams.get("keyword") || "";
   });
 
   React.useEffect(() => {
@@ -28,7 +28,7 @@ function HomePage() {
 
   const navigate = useNavigate();
   function onAddButtonHandler() {
-    navigate('/notes/new');
+    navigate("/notes/new");
   }
 
   function onKeywordChangeHandler(keyword) {
@@ -47,12 +47,12 @@ function HomePage() {
   return (
     <>
     
-      <h2 className="sixth"> {selectLanguage({ id: 'Catatan Aktif', en: 'Active Note' })}</h2>
+      <h2 className="sixth"> {selectLanguage({ id: "Catatan Aktif", en: "Active Note" })}</h2>
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
       <NoteList notes={filteredNotes} />
-      <div className='homepage__action'>
+      <div className="homepage__action">
         <ButtonAction
-          title={selectLanguage({ id: 'Tambah', en: 'Add' })}
+          title={selectLanguage({ id: "Tambah", en: "Add" })}
           onClick={onAddButtonHandler}
           icon={<FiPlus />}
         />

@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import parser from 'html-react-parser';
-import LocaleContext from '../contexts/LocaleContext';
-import { showFormattedDate } from './../utils/index';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import parser from "html-react-parser";
+import LocaleContext from "../contexts/LocaleContext";
+import { showFormattedDate } from "./../utils/index";
+import { Link } from "react-router-dom";
 
 function NoteItem({ id, title, body, createdAt }) {
   const { selectLanguage } = React.useContext(LocaleContext);
   return (
-    <div className='eachCard'>
+    <div className="eachCard">
        <div className="cardContent">
           <div className="cardInfo">
           <Link to={`/notes/${id}`} className="cardTitle">{title}</Link>
-              <h6 className="cardSubTitle">{selectLanguage({ id: showFormattedDate(createdAt, 'id-ID'), en: showFormattedDate(createdAt, 'en-US') })}</h6>
+              <h6 className="cardSubTitle">{selectLanguage({ id: showFormattedDate(createdAt, "id-ID"), en: showFormattedDate(createdAt, "en-US") })}</h6>
               <p className="cardText"> {parser(body)}
               </p>
           </div>

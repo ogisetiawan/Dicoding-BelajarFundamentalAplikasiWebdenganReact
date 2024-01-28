@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import LocaleContext from '../contexts/LocaleContext';
+import React from "react";
+import PropTypes from "prop-types";
+import LocaleContext from "../contexts/LocaleContext";
 import { HiOutlineSearch } from "react-icons/hi";
 
 function SearchBar({ keyword, keywordChange }) {
   const { selectLanguage } = React.useContext(LocaleContext);
   return (
-    <section className='search'>
+    <section className="search">
       <input
-        type='text'
-        placeholder={selectLanguage({ id: 'Cari ..', en: 'Search ..' })}
+        type="text"
+        placeholder={selectLanguage({ id: "Cari ..", en: "Search .." })}
         value={keyword}
         onChange={(event) => keywordChange(event.target.value)}
       />

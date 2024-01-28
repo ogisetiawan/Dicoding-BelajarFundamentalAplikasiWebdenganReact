@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import LocaleContext from '../contexts/LocaleContext';
+import React from "react";
+import PropTypes from "prop-types";
+import LocaleContext from "../contexts/LocaleContext";
 
 function NoteInput({ state, onTitleChange, onBodyInput }) {
   const { selectLanguage } = React.useContext(LocaleContext);
   return (
-    <div className='add-new-page__input'>
+    <div className="add-new-page__input">
       <input
-        className='add-new-page__input__title'
-        placeholder={selectLanguage({ id: 'Judul..', en: 'Title..' })}
+        className="add-new-page__input__title"
+        placeholder={selectLanguage({ id: "Judul..", en: "Title.." })}
         value={state.title}
         onChange={onTitleChange}
-        spellCheck='false'
+        spellCheck="false"
       />
       <div
-        className='add-new-page__input__body'
-        contentEditable='true'
-        data-placeholder={selectLanguage({ id: 'Deksripsi..', en: 'Descriptions..' })}
+        className="add-new-page__input__body"
+        contentEditable="true"
+        data-placeholder={selectLanguage({ id: "Deksripsi..", en: "Descriptions.." })}
         onInput={onBodyInput}
-        spellCheck='false'
+        spellCheck="false"
         suppressContentEditableWarning={true}
       ></div>
     </div>

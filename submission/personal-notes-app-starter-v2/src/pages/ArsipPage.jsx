@@ -1,10 +1,10 @@
-import React from 'react';
-import NoteList from '../components/NoteList';
-import SearchBar from '../components/SearchBar';
-import Loading from '../components/Loading';
-import LocaleContext from '../contexts/LocaleContext';
-import { getArchivedNotes } from '../utils/network-data';
-import { useSearchParams } from 'react-router-dom';
+import React from "react";
+import NoteList from "../components/NoteList";
+import SearchBar from "../components/SearchBar";
+import Loading from "../components/Loading";
+import LocaleContext from "../contexts/LocaleContext";
+import { getArchivedNotes } from "../utils/network-data";
+import { useSearchParams } from "react-router-dom";
 
 function ArsipPage() {
   const { selectLanguage } = React.useContext(LocaleContext);
@@ -13,7 +13,7 @@ function ArsipPage() {
   const [loading, setLoading] = React.useState(true);
 
   const [keyword, setKeyword] = React.useState(() => {
-    return searchParams.get('keyword') || '';
+    return searchParams.get("keyword") || "";
   });
 
   React.useEffect(() => {
@@ -37,8 +37,8 @@ function ArsipPage() {
   }
 
   return (
-    <section className='homepage'>
-      <h2 className="sixth"> {selectLanguage({ id: 'Catatan Arsip', en: 'Archives Note' })}</h2>
+    <section className="homepage">
+      <h2 className="sixth"> {selectLanguage({ id: "Catatan Arsip", en: "Archives Note" })}</h2>
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
       <NoteList notes={filteredNotes} />
     </section>

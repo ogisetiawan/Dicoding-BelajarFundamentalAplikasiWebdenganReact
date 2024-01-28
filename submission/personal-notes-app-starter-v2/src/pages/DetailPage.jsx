@@ -1,12 +1,12 @@
-import React from 'react';
-import ButtonAction from '../components/ButtonAction';
-import NoteDetail from '../components/NoteDetail';
-import Loading from '../components/Loading';
-import LocaleContext from '../contexts/LocaleContext';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getNote, deleteNote, archiveNote, unarchiveNote } from '../utils/network-data';
-import { FiTrash2 } from 'react-icons/fi';
-import { BiArchiveIn, BiArchiveOut } from 'react-icons/bi';
+import React from "react";
+import ButtonAction from "../components/ButtonAction";
+import NoteDetail from "../components/NoteDetail";
+import Loading from "../components/Loading";
+import LocaleContext from "../contexts/LocaleContext";
+import { useNavigate, useParams } from "react-router-dom";
+import { getNote, deleteNote, archiveNote, unarchiveNote } from "../utils/network-data";
+import { FiTrash2 } from "react-icons/fi";
+import { BiArchiveIn, BiArchiveOut } from "react-icons/bi";
 
 function DetailPage() {
   const { selectLanguage } = React.useContext(LocaleContext);
@@ -25,17 +25,17 @@ function DetailPage() {
 
   async function deleteNotenHandler() {
     await deleteNote(id);
-    note.archived ? navigate('/archives') : navigate('/');
+    note.archived ? navigate("/archives") : navigate("/");
   }
 
   async function archiveNotenHandler() {
     await archiveNote(id);
-    navigate('/');
+    navigate("/");
   }
 
   async function unarchiveNoteHandler() {
     await unarchiveNote(id);
-    navigate('/archives');
+    navigate("/archives");
   }
 
   if (loading) {
@@ -44,7 +44,7 @@ function DetailPage() {
 
   if (note === null) {
     return (
-      <section className='alert alert-warning'>
+      <section className="alert alert-warning">
         {selectLanguage({ id: `Ups, "${id}" tidak ditemukan!`, en: `Oops, "${id}" not found!` })}
     </section>
     );
@@ -53,18 +53,18 @@ function DetailPage() {
   return (
     <section>
       <NoteDetail {...note} />
-      <div className='detail-page__action'>
+      <div className="detail-page__action">
         <ButtonAction
           title={
             note.archived
-              ? selectLanguage({ id: 'Aktifkan', en: 'Activate' })
-              : selectLanguage({ id: 'Arsipkan', en: 'Archive' })
+              ? selectLanguage({ id: "Aktifkan", en: "Activate" })
+              : selectLanguage({ id: "Arsipkan", en: "Archive" })
           }
           onClick={note.archived ? unarchiveNoteHandler : archiveNotenHandler}
           icon={note.archived ? <BiArchiveOut /> : <BiArchiveIn />}
         />
         <ButtonAction
-          title={selectLanguage({ id: 'Hapus', en: 'Delete' })}
+          title={selectLanguage({ id: "Hapus", en: "Delete" })}
           onClick={deleteNotenHandler}
           icon={<FiTrash2 />}
         />

@@ -55,11 +55,11 @@ ul {
   list-style: none;
 }
 
-.flex-row{
+.flex-row {
   flex-direction: row;
 }
 
-.ml{
+.ml {
   margin-left: 5px;
 }
 
@@ -68,16 +68,65 @@ ul {
 }
 
 .text-center {
-  text-align: center!important;
-} 
+  text-align: center !important;
+}
 
 .fw-semibold {
-  font-weight: 500!important;
-}
-.fs-6 {
-  font-size: 1.075rem!important;
+  font-weight: 500 !important;
 }
 
+.fs-6 {
+  font-size: 1.075rem !important;
+}
+
+.thirteen h1 {
+  position: relative;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: auto;
+  white-space: nowrap;
+  border: 2px solid var(--on-background-grey);
+  padding: 5px 11px 3px 11px;
+}
+
+.thirteen h1:before,
+.thirteen h1:after {
+  background-color: var(--primary-color);
+  position: absolute;
+  content: '';
+  height: 7px;
+
+  width: 7px;
+  border-radius: 50%;
+  bottom: 12px;
+}
+
+.thirteen h1:before {
+  left: -20px;
+}
+
+.thirteen h1:after {
+  right: -20px;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1:before,
+h1:after {
+  background-color: var(--primary-color);
+}
+
+
+/*  */
 body {
   font-family: inherit;
   background-color: var(--white);
@@ -114,7 +163,7 @@ button {
   color: var(--dark-grey);
 }
 
-.btn-primary{
+.btn-primary {
   background-color: var(--primary-color);
 }
 
@@ -183,7 +232,7 @@ button {
   margin: 0 0.6rem;
 }
 
- .nav-button {
+.nav-button {
   font-size: 19px;
   font-weight: 500;
   font-weight: 500;
@@ -204,6 +253,7 @@ button {
   display: flex;
   align-items: center;
 }
+
 /* 
 .dropdown {
   display: flex;
@@ -318,7 +368,7 @@ h2.sixth:after {
   top: 1px;
   height: 100%;
   font-size: 1.25em;
-  color:var(--primary-color);
+  color: var(--primary-color);
 
   transition: all 0.5s ease;
 }
@@ -341,6 +391,7 @@ h2.sixth:hover:after {
   background-color: #fff3cd;
   border-color: #ffeeba;
 }
+
 .alert {
   position: relative;
   padding: 0.75rem 1.25rem;
@@ -445,6 +496,7 @@ h6 {
   opacity: 1;
   transition: all 0.5s cubic-bezier(0.83, 0, 0.18, 0.78);
 }
+
 /* 
 .notes-list {
   grid-gap: 16px;
@@ -549,7 +601,7 @@ h6 {
   background-color: initial;
   border: 0;
   color: var(--medium-grey);
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 40px;
   padding: 8px 0;
   width: 100%;
@@ -559,7 +611,7 @@ h6 {
   background-color: initial;
   border: 0;
   color: var(--medium-grey);
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 20px;
   min-height: 150px;
   padding: 8px 0;
@@ -599,18 +651,19 @@ footer a,
 
 section.login-page,
 section.register-page {
-  width: 600px!important;
+  width: 600px !important;
   margin-left: auto;
   margin-right: auto;
 }
 
-section.register-page{
-  min-height: 600px;
+section.register-page {
+  min-height: 550px;
 }
 
-.register-link{
+.register-link {
   color: var(--primary-color)
 }
+
 .input-login,
 .input-register {
   margin: 10px 0px 25px 0;
@@ -639,7 +692,7 @@ section.register-page{
 
 
 .d-grid {
-  display: grid!important;
+  display: grid !important;
 }
 
 /* .input-login button,

@@ -1,17 +1,17 @@
-import React from 'react';
-import NoteInput from '../components/NoteInput';
-import ButtonAction from '../components/ButtonAction';
-import LocaleContext from '../contexts/LocaleContext';
-import { addNote } from '../utils/network-data';
-import { useNavigate } from 'react-router-dom';
-import { FiCheck } from 'react-icons/fi';
+import React from "react";
+import NoteInput from "../components/NoteInput";
+import ButtonAction from "../components/ButtonAction";
+import LocaleContext from "../contexts/LocaleContext";
+import { addNote } from "../utils/network-data";
+import { useNavigate } from "react-router-dom";
+import { FiCheck } from "react-icons/fi";
 
 function AddPage() {
   const { selectLanguage } = React.useContext(LocaleContext);
   const navigate = useNavigate();
   const [newNote, setNewNote] = React.useState({
-    title: '',
-    body: ''
+    title: "",
+    body: ""
   });
 
   function onTitleChangeEventHandler(event) {
@@ -34,16 +34,16 @@ function AddPage() {
 
   async function onSaveNoteHandler() {
     await addNote(newNote);
-    navigate('/');
+    navigate("/");
   }
 
   return (
-    <section className='add-new-page'>
+    <section className="add-new-page">
       <h2 className="sixth">Create Notes</h2>
       <NoteInput state={newNote} onTitleChange={onTitleChangeEventHandler} onBodyInput={onBodyInputEventHandler} />
-      <div className='add-new-page__action'>
+      <div className="add-new-page__action">
         <ButtonAction
-          title={selectLanguage({ id: 'Simpan', en: 'Save' })}
+          title={selectLanguage({ id: "Simpan", en: "Save" })}
           onClick={onSaveNoteHandler}
           icon={<FiCheck />}
         />

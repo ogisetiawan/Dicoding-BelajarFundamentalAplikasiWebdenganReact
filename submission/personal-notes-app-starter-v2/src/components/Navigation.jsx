@@ -16,9 +16,11 @@ function Navigation({ logout, name }) {
   return (
     <div className="container">
       <div className="nav-start">
-        <h2 className="logo">
-          {selectLanguage({ id: "Aplikasi Catatan Pribadi", en: "Personal Notes Apps" })}
-        </h2>
+        <div class="thirteen">
+          <h1 className="logo">
+            {selectLanguage({ id: "Aplikasi Catatan Pribadi", en: "Personal Notes Apps" })}
+          </h1>
+        </div>
       </div>
       <div className="nav-end">
         <div className="right-container">
@@ -33,11 +35,11 @@ function Navigation({ logout, name }) {
           )}
           <button className="nav-button" onClick={toggleLocale} title="Translate"> <HiOutlineTranslate /></button>
           <button className="nav-button" onClick={toggleTheme} title="Theme">
-            {theme === "light" ?<HiOutlineMoon /> : <HiOutlineSun />}
+            {theme === "light" ? <HiOutlineMoon /> : <HiOutlineSun />}
           </button>
           {logout !== undefined && (
             <button className="btn btn-primary" onClick={logout} title="Logout">
-             <span className="ml">Hi, {name}</span>  <HiOutlineLogout /> 
+              <span className="ml">Hi, {name}</span>  <HiOutlineLogout />
             </button>
           )}
         </div>
