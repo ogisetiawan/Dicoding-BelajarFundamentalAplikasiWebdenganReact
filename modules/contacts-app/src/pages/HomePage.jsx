@@ -2,7 +2,8 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ContactList from '../components/ContactList';
 import SearchBar from '../components/SearchBar';
-import { deleteContact, getContacts } from '../utils/data';
+// import { deleteContact } from '../utils/data';
+import { getContacts, deleteContact } from '../utils/api'; //? get contact by id login
 
 function HomePageWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +21,7 @@ class HomePage extends React.Component {
         super(props);
 
         this.state = {
-            contacts: getContacts(),//?create state
+            contacts: [],
             keyword: props.defaultKeyword || '', //? isnull
         }
 
@@ -28,17 +29,39 @@ class HomePage extends React.Component {
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this); //? bind onEvent
     }
 
-    onDeleteHandler(id) {
-        deleteContact(id);
-
-        // update the contact state from data.js
+    //? lifecycle componentDidMount
+    async componentDidMount() {
+        const { data } = await getContacts();
         this.setState(() => {
             return {
-                contacts: getContacts(),
+                contacts: data
             }
-        });
+        })
     }
-    
+
+    // onDeleteHandler(id) {
+    //     deleteContact(id);
+
+    //     // update the contact state from data.js
+    //     this.setState(() => {
+    //         return {
+    //             contacts: getContacts(),
+    //         }
+    //     });
+    // }
+
+    async onDeleteHandler(id) {
+        await deleteContact(id);
+     
+        // update the contact state from data.js
+        const { data  } = await getContacts();
+        this.setState(() => {
+          return {
+            contacts: data,
+          }
+        });
+      }
+
     onKeywordChangeHandler(keyword) {
         this.setState(() => {
             return {

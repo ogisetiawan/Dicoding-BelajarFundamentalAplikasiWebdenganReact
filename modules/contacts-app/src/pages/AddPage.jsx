@@ -1,5 +1,6 @@
 import React from 'react';
-import { addContact } from '../utils/data'; //? membawa data kontak baru yang hendak dimasukkan
+// import { addContact } from '../utils/data'; //? membawa data kontak baru yang hendak dimasukkan
+import { addContact } from '../utils/api'
 import ContactInput from '../components/ContactInput';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,11 +8,16 @@ import { useNavigate } from 'react-router-dom';
 function AddPage() {
     const navigate = useNavigate();
 
-    /// mendefinisikan event handler ketika tombol “submit” pada form diklik
-    function onAddContactHandler(contact) {
-        addContact(contact)
-        navigate('/'); //? navigate setelah event addcontact
+    async function onAddContactHandler(contact) {
+        await addContact(contact);
+        navigate('/');
     }
+
+    // /// mendefinisikan event handler ketika tombol “submit” pada form diklik
+    // function onAddContactHandler(contact) {
+    //     addContact(contact)
+    //     navigate('/'); //? navigate setelah event addcontact
+    // }
 
     return (
         <section>
